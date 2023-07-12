@@ -1,28 +1,29 @@
-import { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
-import jwt_decode from 'jwt-decode';
+import { useState, useEffect } from 'react'
+import Cookies from 'js-cookie'
+import jwt_decode from 'jwt-decode'
 
 const useAuth = () => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        const token = Cookies.get('access_token');
-        //
-        if (token) {
-            try {
-                const decoded = jwt_decode(token);
-                setUser(decoded);
-            } catch (error) {
-                console.error("Error decoding token:", error);
-                // Additional error handling...
-            }
-        }
-        setLoading(false);
-        // console.log('decoded ', user)
-    }, []);
+  useEffect(() => {
+    const token = Cookies.get('access_token')
 
-    return { user, loading };
-};
+    if (token) {
+      try {
+        console.log('token FE', token)
+        const decoded = jwt_decode(token)
+        setUser(decoded)
+      } catch (error) {
+        console.error('Error decoding token:', error)
+        // Additional error handling...
+      }
+    }
+    setLoading(false)
+    // console.log('decoded ', user)
+  }, [])
 
-export default useAuth;
+  return { user, loading }
+}
+
+export default useAuth
