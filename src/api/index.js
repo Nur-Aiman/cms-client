@@ -1,1 +1,1 @@
-export const HOST = 'https://harmony-hub-counselling-api.onrender.com'
+export const HOST = 'https://harmony-hub-counselling-api.zahinzul.com'
