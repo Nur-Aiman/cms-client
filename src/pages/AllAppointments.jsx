@@ -30,6 +30,7 @@ const Appointments = () => {
     )
     if (response.ok) {
       const data = await response.json()
+      console.log(data)
 
       setAppointmentsFunc(data.appointments || [])
     } else {
