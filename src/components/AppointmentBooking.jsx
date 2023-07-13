@@ -22,7 +22,7 @@ function AppointmentBooking({
 
   const getTimes = (justDate) => {
     const beginning = add(justDate, { hours: 8 })
-    const end = add(justDate, { hours: 17 })
+    const end = add(justDate, { hours: 15, minutes: 30 })
     const interval = 30
 
     let times = []
