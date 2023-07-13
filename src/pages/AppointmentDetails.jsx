@@ -651,6 +651,7 @@ const AppointmentDetails = () => {
                                   justDate: dateValue,
                                 }))
                                 setTimes(getTimes(dateValue))
+                                setSelectedTimeIndex(null)
                               }}
                             />
                           </div>
