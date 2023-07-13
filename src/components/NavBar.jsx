@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HOST } from '../api'
+import Cookies from 'js-cookie'
 
 const NavBar = ({ loggedInUser, setLoggedInUser }) => {
   const navigate = useNavigate()
@@ -44,6 +45,7 @@ const NavBar = ({ loggedInUser, setLoggedInUser }) => {
 
       console.log(await response.text())
       setLoggedInUser(null)
+      Cookies.remove('access_token')
       setDropdownOpen(false)
       navigate('/')
     } catch (error) {
