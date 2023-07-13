@@ -161,7 +161,18 @@ function AppointmentBooking({
               const dateInUTC = new Date(session.date_time)
               console.log('dateInUTC:', dateInUTC)
 
-              const formattedDate = format(dateInUTC, 'dd/MM/yyyy HH:mm:ss')
+              // Get the UTC hours and minutes
+              const hours = dateInUTC.getUTCHours()
+              const minutes = dateInUTC.getUTCMinutes()
+
+              // Format the date as dd/MM/yyyy and the time as HH:mm
+              const formattedDate =
+                format(dateInUTC, 'dd/MM/yyyy') +
+                ' ' +
+                String(hours).padStart(2, '0') +
+                ':' +
+                String(minutes).padStart(2, '0') +
+                ':00'
               console.log('formattedDate:', formattedDate)
 
               return (
