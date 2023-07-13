@@ -38,10 +38,10 @@ function AppointmentBooking({
               format(justDate, 'dd/MM/yyyy')
           )
           .map((session) => {
-            const dateInUtc = new Date(session.date_time)
-            const formatString = 'yyyy-MM-dd HH:mm:ss'
-            const timeZone = 'Asia/Kuala_Lumpur'
-            const zonedDate = format(dateInUtc, formatString, { timeZone })
+            const zonedDate = utcToZonedTime(
+              session.date_time,
+              'Asia/Kuala_Lumpur'
+            )
             return new Date(zonedDate)
           })
       : []
