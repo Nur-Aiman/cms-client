@@ -37,7 +37,17 @@ function AppointmentBooking({
               format(new Date(session.date_time), 'dd/MM/yyyy') ===
               format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => new Date(session.date_time))
+          .map((session) => {
+            const dateInUTC = new Date(session.date_time)
+            const UTCDate = Date.UTC(
+              dateInUTC.getUTCFullYear(),
+              dateInUTC.getUTCMonth(),
+              dateInUTC.getUTCDate(),
+              dateInUTC.getUTCHours(),
+              dateInUTC.getUTCMinutes()
+            )
+            return new Date(UTCDate)
+          })
       : []
 
     const adjustedTimes = times.filter((time) => {
