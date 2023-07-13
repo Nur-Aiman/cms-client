@@ -155,8 +155,8 @@ function AppointmentBooking({
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
             counsellorSession.map((session, i) => {
-              const dateInUTC = new Date(session.date_time)
-              // use format from date-fns to display the date and time
+              // Convert the date string to a UTC date
+              const dateInUTC = new Date(session.date_time + 'Z')
               const formattedDate = format(dateInUTC, 'dd/MM/yyyy HH:mm:ss')
 
               return (
