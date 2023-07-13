@@ -165,7 +165,7 @@ function AppointmentBooking({
               const formattedDate = formatDateInZone(
                 dateInCorrectTimeZone,
                 'dd/MM/yyyy HH:mm:ss',
-                { timeZone: 'Asia/Jakarta' }
+                { timeZone: 'Asia/Kuala_Lumpur' }
               )
 
               return (
