@@ -101,7 +101,10 @@ const Appointments = () => {
         </p>
         <br />
         <p className='text-gray-700 text-base'>
-          <strong>Main Issue:</strong> <br /> {appointment.main_issue}
+          <strong>Main Issue:</strong> <br />
+          <span className='whitespace-normal break-all'>
+            {appointment.main_issue}
+          </span>
         </p>
       </div>
     ))

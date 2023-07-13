@@ -355,7 +355,7 @@ const AppointmentDetails = () => {
             <p className='text-gray-600 my-8 '>
               <strong className='text-2xl font-semibold'>Main Issue:</strong>{' '}
               <br /> <br />
-              <div className='mx-6 text-base'>
+              <div className='mx-6 text-base whitespace-normal break-all'>
                 {appointmentDetails.main_issue}
               </div>
             </p>
@@ -373,7 +373,8 @@ const AppointmentDetails = () => {
                   <strong>
                     {index + 1}. {`${questions[index]}`}
                   </strong>{' '}
-                  <br /> {value}
+                  <br />
+                  <span className='whitespace-normal break-all'>{value}</span>
                 </p>
               )
             )}
