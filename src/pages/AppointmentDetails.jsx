@@ -204,7 +204,7 @@ const AppointmentDetails = () => {
         },
         credentials: 'include',
         body: JSON.stringify({
-          date_time: format(new Date(selectedDateTime), 'dd/MM/yyyy p'),
+          date_time: format(new Date(selectedDateTime), 'MM/dd/yyyy p'),
         }),
       }
     )
