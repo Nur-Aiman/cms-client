@@ -160,19 +160,22 @@ function AppointmentBooking({
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
             counsellorSession.map((session, i) => {
+              console.log('session.date_time:', session.date_time)
+
               const dateInUTC = new Date(session.date_time)
+              console.log('dateInUTC:', dateInUTC)
 
-              // Convert the date to a specific timezone.
-              // The 'Asia/Kuala_Lumpur' timezone is just an example, replace it with your desired timezone.
-              const dateInDesiredTimezone = utcToZonedTime(
-                dateInUTC,
-                'Asia/Kuala_Lumpur'
-              )
+              const hours = dateInUTC.getUTCHours()
+              const minutes = dateInUTC.getUTCMinutes()
 
-              const formattedDate = formatDateInZone(
-                dateInDesiredTimezone,
-                'dd/MM/yyyy HH:mm:ss'
-              )
+              const formattedDate =
+                formatDateInZone(dateInUTC, 'dd/MM/yyyy') +
+                ' ' +
+                String(hours).padStart(2, '0') +
+                ':' +
+                String(minutes).padStart(2, '0') +
+                ':00'
+              console.log('formattedDate:', formattedDate)
 
               return (
                 <div key={i}>
