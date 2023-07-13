@@ -325,7 +325,9 @@ function MyAppointment() {
               <p className='text-gray-600 my-16 '>
                 <strong className='text-2xl font-semibold'>Main Issue:</strong>{' '}
                 <br /> <br />
-                <div className='mx-6 text-base'>{appointment.main_issue}</div>
+                <div className='mx-6 text-base whitespace-normal break-all'>
+                  {appointment.main_issue}
+                </div>
               </p>
             </div>
           </section>
@@ -347,7 +349,7 @@ function MyAppointment() {
                           {index + 1}. {questions[index]}
                         </strong>
                       </p>
-                      <p className='overflow-auto'>{answer}</p>
+                      <p className='whitespace-normal break-all'>{answer}</p>
                     </div>
                   )
                 )}
