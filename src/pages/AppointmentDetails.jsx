@@ -32,6 +32,7 @@ const AppointmentDetails = () => {
 
   const { user, loading } = useAuth()
   const navigate = useNavigate()
+
   const getTimes = (justDate) => {
     const beginning = add(justDate, { hours: 8 })
     const end = add(justDate, { hours: 17 })
@@ -49,7 +50,10 @@ const AppointmentDetails = () => {
               format(new Date(session.date_time), 'dd/MM/yyyy') ===
               format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => new Date(session.date_time))
+          .map((session) => {
+            const bookedTime = add(new Date(session.date_time), { hours: -8 }) // Subtracting 8 hours
+            return bookedTime
+          })
       : []
 
     const adjustedTimes = times.filter((time) => {
