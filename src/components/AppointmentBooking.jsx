@@ -27,6 +27,7 @@ function AppointmentBooking({
 
     let times = []
     for (let i = beginning; i <= end; i = add(i, { minutes: interval })) {
+      console.log(i)
       times.push(i)
     }
 
