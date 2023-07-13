@@ -154,10 +154,11 @@ function AppointmentBooking({
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
             counsellorSession.map((session, i) => {
-              console.log(session.date_time)
+              const correctedDateTime = session.date_time.replace('ZZ', 'Z')
+              const date = new Date(correctedDateTime)
               return (
                 <div key={i}>
-                  <h3>{new Date(session.date_time).toLocaleString()}</h3>
+                  <h3>{date.toLocaleString()}</h3>
                 </div>
               )
             })}
