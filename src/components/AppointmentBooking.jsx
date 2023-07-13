@@ -158,7 +158,7 @@ function AppointmentBooking({
               console.log('session.date_time:', session.date_time)
 
               // Convert the date string to a UTC date
-              const dateInUTC = new Date(session.date_time + 'Z')
+              const dateInUTC = new Date(session.date_time)
               console.log('dateInUTC:', dateInUTC)
 
               const formattedDate = format(dateInUTC, 'dd/MM/yyyy HH:mm:ss')
