@@ -39,8 +39,8 @@ function AppointmentBooking({
               format(justDate, 'dd/MM/yyyy')
           )
           .map((session) => {
-            const bookedTime = new Date(session.date_time)
-            console.log(bookedTime) // Logging the booked time
+            const bookedTime = add(new Date(session.date_time), { hours: -8 }) // Subtracting 8 hours
+            console.log(bookedTime)
             return bookedTime
           })
       : []
