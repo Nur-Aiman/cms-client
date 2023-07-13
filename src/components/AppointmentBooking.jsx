@@ -162,17 +162,14 @@ function AppointmentBooking({
             counsellorSession.map((session, i) => {
               console.log('session.date_time:', session.date_time)
 
-              // Convert the date string to a UTC date
               const dateInUTC = new Date(session.date_time)
               console.log('dateInUTC:', dateInUTC)
 
-              // Get the UTC hours and minutes
               const hours = dateInUTC.getUTCHours()
               const minutes = dateInUTC.getUTCMinutes()
 
-              // Format the date as dd/MM/yyyy and the time as HH:mm
               const formattedDate =
-                format(dateInUTC, 'dd/MM/yyyy') +
+                formatDateInZone(dateInUTC, 'dd/MM/yyyy') +
                 ' ' +
                 String(hours).padStart(2, '0') +
                 ':' +
