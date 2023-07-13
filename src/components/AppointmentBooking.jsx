@@ -155,9 +155,14 @@ function AppointmentBooking({
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
             counsellorSession.map((session, i) => {
+              console.log('session.date_time:', session.date_time)
+
               // Convert the date string to a UTC date
               const dateInUTC = new Date(session.date_time + 'Z')
+              console.log('dateInUTC:', dateInUTC)
+
               const formattedDate = format(dateInUTC, 'dd/MM/yyyy HH:mm:ss')
+              console.log('formattedDate:', formattedDate)
 
               return (
                 <div key={i}>
