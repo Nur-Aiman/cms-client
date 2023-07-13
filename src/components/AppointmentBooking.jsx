@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactCalendar from 'react-calendar'
-import { add, format, differenceInMinutes } from 'date-fns'
+import { add, differenceInMinutes } from 'date-fns'
 import 'tailwindcss/tailwind.css'
 import { utcToZonedTime, format } from 'date-fns-tz'
 import { HOST } from '../api'
