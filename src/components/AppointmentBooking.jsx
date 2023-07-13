@@ -39,16 +39,8 @@ function AppointmentBooking({
               format(justDate, 'dd/MM/yyyy')
           )
           .map((session) => {
-            const dateInUTC = new Date(session.date_time)
-            const UTCDate = Date.UTC(
-              dateInUTC.getUTCFullYear(),
-              dateInUTC.getUTCMonth(),
-              dateInUTC.getUTCDate(),
-              dateInUTC.getUTCHours(),
-              dateInUTC.getUTCMinutes()
-            )
-            const bookedTime = new Date(UTCDate)
-            console.log(bookedTime)
+            const bookedTime = new Date(session.date_time)
+            console.log(bookedTime) // Logging the booked time
             return bookedTime
           })
       : []
