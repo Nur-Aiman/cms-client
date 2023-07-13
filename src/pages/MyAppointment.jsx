@@ -258,6 +258,7 @@ function MyAppointment() {
                             day: '2-digit',
                             hour: '2-digit',
                             minute: '2-digit',
+                            timeZone: 'UTC',
                           }).format(new Date(session.date_time))}
                         </td>
                         <td className='px-6 py-4 whitespace-normal break-all text-base text-gray-500'>
