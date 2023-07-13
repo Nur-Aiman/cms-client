@@ -47,7 +47,9 @@ function AppointmentBooking({
               dateInUTC.getUTCHours(),
               dateInUTC.getUTCMinutes()
             )
-            return new Date(UTCDate)
+            const bookedTime = new Date(UTCDate)
+            console.log(bookedTime)
+            return bookedTime
           })
       : []
 
