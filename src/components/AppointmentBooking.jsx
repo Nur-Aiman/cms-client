@@ -37,17 +37,7 @@ function AppointmentBooking({
               format(new Date(session.date_time), 'dd/MM/yyyy') ===
               format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => {
-            const dateInUTC = new Date(session.date_time)
-            const UTCDate = Date.UTC(
-              dateInUTC.getUTCFullYear(),
-              dateInUTC.getUTCMonth(),
-              dateInUTC.getUTCDate(),
-              dateInUTC.getUTCHours(),
-              dateInUTC.getUTCMinutes()
-            )
-            return new Date(UTCDate)
-          })
+          .map((session) => new Date(session.date_time))
       : []
 
     const adjustedTimes = times.filter((time) => {
@@ -56,7 +46,13 @@ function AppointmentBooking({
       )
     })
 
-    return adjustedTimes
+    return adjustedTimes.map((time) => {
+      const dateInUTC = new Date(time)
+      const localTime = new Date(
+        dateInUTC.getTime() + dateInUTC.getTimezoneOffset() * 60000
+      )
+      return localTime
+    })
   }
 
   useEffect(() => {
