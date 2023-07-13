@@ -34,10 +34,12 @@ function AppointmentBooking({
       ? counsellorSession
           .filter(
             (session) =>
-              format(new Date(session.date_time), 'dd/MM/yyyy') ===
-              format(justDate, 'dd/MM/yyyy')
+              format(
+                new Date(session.date_time.replace('ZZ', 'Z')),
+                'dd/MM/yyyy'
+              ) === format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => new Date(session.date_time))
+          .map((session) => new Date(session.date_time.replace('ZZ', 'Z')))
       : []
 
     const adjustedTimes = times.filter((time) => {
