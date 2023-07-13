@@ -156,16 +156,8 @@ function AppointmentBooking({
           {counsellorSession &&
             counsellorSession.map((session, i) => {
               const dateInUTC = new Date(session.date_time)
-
-              const dateInCorrectTimeZone = utcToZonedTime(
-                dateInUTC,
-                'Asia/Kuala_Lumpur'
-              )
-              const formattedDate = formatDateInZone(
-                dateInCorrectTimeZone,
-                'dd/MM/yyyy HH:mm:ss',
-                { timeZone: 'Asia/Kuala_Lumpur' }
-              )
+              // use format from date-fns to display the date and time
+              const formattedDate = format(dateInUTC, 'dd/MM/yyyy HH:mm:ss')
 
               return (
                 <div key={i}>
