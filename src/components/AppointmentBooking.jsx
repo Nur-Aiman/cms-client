@@ -34,12 +34,10 @@ function AppointmentBooking({
       ? counsellorSession
           .filter(
             (session) =>
-              format(
-                new Date(session.date_time.replace('ZZ', 'Z')),
-                'dd/MM/yyyy'
-              ) === format(justDate, 'dd/MM/yyyy')
+              format(new Date(session.date_time), 'dd/MM/yyyy') ===
+              format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => new Date(session.date_time.replace('ZZ', 'Z')))
+          .map((session) => new Date(session.date_time))
       : []
 
     const adjustedTimes = times.filter((time) => {
@@ -157,8 +155,7 @@ function AppointmentBooking({
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
             counsellorSession.map((session, i) => {
-              const correctedDateTime = session.date_time.replace('ZZ', 'Z')
-              const dateInUTC = new Date(correctedDateTime)
+              const dateInUTC = new Date(session.date_time)
 
               const dateInCorrectTimeZone = utcToZonedTime(
                 dateInUTC,
