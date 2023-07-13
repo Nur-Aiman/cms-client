@@ -325,9 +325,7 @@ function MyAppointment() {
               <p className='text-gray-600 my-16 '>
                 <strong className='text-2xl font-semibold'>Main Issue:</strong>{' '}
                 <br /> <br />
-                <div className='mx-6 text-base whitespace-nowrap'>
-                  {appointment.main_issue}
-                </div>
+                <div className='mx-6 text-base'>{appointment.main_issue}</div>
               </p>
             </div>
           </section>
@@ -342,14 +340,14 @@ function MyAppointment() {
                   (answer, index) => (
                     <div
                       key={index}
-                      className=' rounded py-3 mx-6 text-gray-600 text-base space-y-1'
+                      className='rounded py-3 mx-6 text-gray-600 text-base space-y-1'
                     >
                       <p>
                         <strong className='font-bold'>
                           {index + 1}. {questions[index]}
                         </strong>
                       </p>
-                      <p className='whitespace-nowrap'>{answer}</p>
+                      <p className='overflow-auto'>{answer}</p>
                     </div>
                   )
                 )}
