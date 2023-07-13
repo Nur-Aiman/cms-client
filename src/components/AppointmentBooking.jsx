@@ -153,11 +153,14 @@ function AppointmentBooking({
 
           <h2 className='text-lg mb-2'>This counsellor has been booked at </h2>
           {counsellorSession &&
-            counsellorSession.map((session, i) => (
-              <div key={i}>
-                <h3>{new Date(session.date_time).toLocaleString()}</h3>
-              </div>
-            ))}
+            counsellorSession.map((session, i) => {
+              console.log(session.date_time)
+              return (
+                <div key={i}>
+                  <h3>{new Date(session.date_time).toLocaleString()}</h3>
+                </div>
+              )
+            })}
         </div>
       </div>
     </>
