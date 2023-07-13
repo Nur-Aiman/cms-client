@@ -50,10 +50,7 @@ const AppointmentDetails = () => {
               format(new Date(session.date_time), 'dd/MM/yyyy') ===
               format(justDate, 'dd/MM/yyyy')
           )
-          .map((session) => {
-            const bookedTime = add(new Date(session.date_time), { hours: -8 }) // Subtracting 8 hours
-            return bookedTime
-          })
+          .map((session) => new Date(session.date_time))
       : []
 
     const adjustedTimes = times.filter((time) => {
