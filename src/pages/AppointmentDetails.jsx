@@ -440,14 +440,19 @@ const AppointmentDetails = () => {
                       {session.session_number}
                     </td>
                     <td className='border px-4 py-2'>
-                      {new Intl.DateTimeFormat('en-GB', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      }).format(new Date(session.date_time))}
+                      {(() => {
+                        const date = new Date(session.date_time)
+                        date.setHours(date.getHours() - 8)
+                        return new Intl.DateTimeFormat('en-GB', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        }).format(date)
+                      })()}
                     </td>
+
                     <td className='border px-4 py-2'>
                       {session.payment_status === 'paid' ? (
                         <>
