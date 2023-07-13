@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactCalendar from 'react-calendar'
 import { add, format, differenceInMinutes } from 'date-fns'
+import { utcToZonedTime, format as formatDateInZone } from 'date-fns-tz'
 import 'tailwindcss/tailwind.css'
 import { HOST } from '../api'
 
@@ -155,10 +156,21 @@ function AppointmentBooking({
           {counsellorSession &&
             counsellorSession.map((session, i) => {
               const correctedDateTime = session.date_time.replace('ZZ', 'Z')
-              const date = new Date(correctedDateTime)
+              const dateInUTC = new Date(correctedDateTime)
+
+              const dateInCorrectTimeZone = utcToZonedTime(
+                dateInUTC,
+                'Asia/Kuala_Lumpur'
+              )
+              const formattedDate = formatDateInZone(
+                dateInCorrectTimeZone,
+                'dd/MM/yyyy HH:mm:ss',
+                { timeZone: 'Asia/Jakarta' }
+              )
+
               return (
                 <div key={i}>
-                  <h3>{date.toLocaleString()}</h3>
+                  <h3>{formattedDate}</h3>
                 </div>
               )
             })}
