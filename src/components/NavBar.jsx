@@ -93,7 +93,7 @@ const NavBar = ({ loggedInUser, setLoggedInUser }) => {
           onClick={() => navigate('/')}
           className='text-2xl font-bold mb-4'
         >
-          Counselling Management System
+          Harmony Hub Counselling
         </button>
         <div className='flex'>
           {loggedInUser &&
