@@ -313,7 +313,7 @@ const AppointmentDetails = () => {
     `}
       </style>
 
-      <div className=' bg-dark-blue h-full'>
+      <div className=' bg-dark-blue h-full min-h-screen'>
         <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
 
         <div className='flex justify-between items-center mb-4'>

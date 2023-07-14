@@ -111,7 +111,7 @@ const Appointments = () => {
   }
 
   return (
-    <div className='bg-dark-blue h-full'>
+    <div className='bg-dark-blue min-h-screen'>
       <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
       <div className='flex flex-col items-center px-2 sm:px-4 md:px-8 lg:px-16 xl:px-32'>
         <div className='p-4 w-full md:w-3/4 lg:w-2/3'>
