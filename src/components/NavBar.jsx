@@ -55,7 +55,7 @@ const NavBar = ({ loggedInUser, setLoggedInUser }) => {
 
   const clientButtons = [
     { label: 'My Appointment', route: '/client/appointment-view' },
-    { label: 'Book Session', route: '/client/appointment-booking' },
+    { label: 'Book Appointment', route: '/client/appointment-booking' },
   ]
 
   const counsellorButtons = [
